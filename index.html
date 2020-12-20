@@ -134,7 +134,7 @@
 			overflow: hidden;
 		}
 		.wrap .marquee {
-			width: 370px;
+			width: 400px;
 			transform: translateX(0px);
 		}
 		.input-box {
@@ -246,19 +246,22 @@
 		var $o = document.querySelector('#time');
 		var $m = document.querySelector('.marquee');
 		var y = d.getFullYear();
-		var m = d.getMonth();
-		var date = d.getDate();
-		var h = d.getHours();
-		var min = d.getMinutes();
-		var s = d.getSeconds();
-		$o.innerHTML = `${y}-${m}-${date} ${h}:${min}:${s} ${y}-${m}-${date} ${h}:${min}:${s}`;
+		var m = d.getMonth() < 10 ? '0' + d.getMonth() : d.getMonth();
+		var date = d.getDate() < 10 ? '0' + d.getDate() : d.getDate();
+		var h = d.getHours() < 10 ? '0' + d.getHours() : d.getHours();
+		var min = d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes();
+		var s = d.getSeconds() < 10 ? '0' + d.getSeconds() : d.getSeconds();
+
+
+
+		$o.innerHTML = `${y}-${m}-${date} ${h}:${min}:${s}&nbsp&nbsp${y}-${m}-${date} ${h}:${min}:${s}`;
 		var xTrans = 0;
 		
 		setInterval(() => {
 			xTrans -= 1;
-			if(xTrans < -126) xTrans = 0;
+			if(xTrans < -200) xTrans = 0;
 			$m.style.transform = `translateX(${xTrans}px)`;
-		}, 50);
+		}, 40);
 
 		var $name = document.querySelector('.input-name');
 		var $i = document.querySelector('.input-box input');
