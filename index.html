@@ -143,7 +143,7 @@
 
 			margin: 20px 20px;
 		}
-		.input-box input {
+		.input-box #name-text {
 			padding-left: 5px;
 			height: 25px;
 			width: 80px;
@@ -162,19 +162,36 @@
 			color: #fff;
 			cursor: pointer;
 		}
+		.r-box {
+			display: inline-block;
+		}
+		.out-in-text {
+			display: inline-block;
+		}
 	</style>
 </head>
 <body>
 	<div class="app">
 		<div class="input-box">
-			<input type="text"  placeholder="输入姓名">
+			<input id="name-text" type="text"  placeholder="输入姓名">
+			<div class="r-box">
+				<label for="out">
+				出校
+					<input id="out" type="radio" name="school" value="出校登记成功！" checked>
+				</label>
+				<label for="in">
+					入校
+					<input id="in" type="radio" name="school" value="入校授权有效！">
+				</label>
+			</div>
+			
 			<div class="input-btn">
 				<span>隐藏</span>
 			</div>
 		</div>
 		<div class="header">
 			<span>
-				研究生用户，出校登记成功！
+				研究生用户，<div class="out-in-text">出校登记成功！</div>
 			</span>
 		</div>
 		<div class="list">
@@ -272,6 +289,15 @@
 		}, false);
 		$i.addEventListener('input', () => {
 			$name.innerHTML = $i.value;
+		}, false);
+		var $r = document.querySelector(".r-box");
+		var $rText = document.querySelector(".out-in-text");
+			console.log($r)
+
+		$r.addEventListener('click', (e) => {
+			var $checked = document.querySelector("[name='school']:checked");
+			$rText.innerHTML = $checked.value;
+			console.log(e.target)
 		}, false);
 	</script>
 </body>
