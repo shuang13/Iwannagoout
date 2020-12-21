@@ -140,7 +140,6 @@
 		.input-box {
 			position: absolute;
 			top: 0;
-
 			margin: 20px 20px;
 		}
 		.input-box #name-text {
@@ -167,6 +166,9 @@
 		}
 		.out-in-text {
 			display: inline-block;
+		}
+		input[type=radio] {
+			vertical-align: middle;
 		}
 	</style>
 </head>
@@ -284,20 +286,18 @@
 		var $i = document.querySelector('.input-box input');
 		var $box = document.querySelector('.input-box');
 		var $btn = document.querySelector('.input-btn');
+		var $r = document.querySelector(".r-box");
+		var $rText = document.querySelector(".out-in-text");
+		
 		$btn.addEventListener('click', () => {
 			$box.style.display = 'none';
 		}, false);
 		$i.addEventListener('input', () => {
 			$name.innerHTML = $i.value;
 		}, false);
-		var $r = document.querySelector(".r-box");
-		var $rText = document.querySelector(".out-in-text");
-			console.log($r)
-
 		$r.addEventListener('click', (e) => {
 			var $checked = document.querySelector("[name='school']:checked");
 			$rText.innerHTML = $checked.value;
-			console.log(e.target)
 		}, false);
 	</script>
 </body>
