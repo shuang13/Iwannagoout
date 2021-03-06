@@ -261,6 +261,7 @@
 		
 	</div>
 	<script>
+		var log = console.log.bind(console);
 		var d = new Date();
 		var $o = document.querySelector('#time');
 		var $m = document.querySelector('.marquee');
@@ -270,8 +271,6 @@
 		var h = d.getHours() < 10 ? '0' + d.getHours() : d.getHours();
 		var min = d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes();
 		var s = d.getSeconds() < 10 ? '0' + d.getSeconds() : d.getSeconds();
-
-
 
 		$o.innerHTML = `${y}-${m}-${date} ${h}:${min}:${s}&nbsp&nbsp${y}-${m}-${date} ${h}:${min}:${s}`;
 		var xTrans = 0;
